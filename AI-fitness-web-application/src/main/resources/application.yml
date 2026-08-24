@@ -1,0 +1,18 @@
+
+spring:
+  application:
+    name: AI-fitness-web-application
+
+  datasource:
+    url: jdbc:mysql://localhost:3360/fitnessusers
+    username: root
+    password: fahim2031
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
