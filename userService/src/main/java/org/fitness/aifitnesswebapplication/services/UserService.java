@@ -1,6 +1,7 @@
 package org.fitness.aifitnesswebapplication.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.fitness.aifitnesswebapplication.UsersRepository;
 import org.fitness.aifitnesswebapplication.dto.RegisterRequest;
 import org.fitness.aifitnesswebapplication.dto.UserResponse;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserService {
     private final UsersRepository repository;
 
@@ -51,5 +53,11 @@ public class UserService {
         return userResponse;
 
 
+    }
+
+    public Boolean existByUserId(String userId) {
+        log.info("Calling User Service for {}", userId);
+
+        return repository.existsById(userId);
     }
 }

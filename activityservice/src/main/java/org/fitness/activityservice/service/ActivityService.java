@@ -11,9 +11,18 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ActivityService {
     private final ActivityRepository activityRepository;
+
+    private final UserValidationService userValidationService;
+
     public ActivityResonse trackActivity(ActivityRequest request) {
+
+        boolean isValidUser = userValidationService.validateUser(request.getUserID());
+
+        if (!isValidUser){
+            throw  new RuntimeException("Invalid user ID"+ request.getUserID());
+        }
         Activity activity= Activity.builder()
-                .userID(String.valueOf(request.getType()))
+                .userID(request.getUserID())
                 .type(request.getType())
                 .durantion(request.getDurantion())
                 .caloriesBurned(request.getCaloriesBurned())
