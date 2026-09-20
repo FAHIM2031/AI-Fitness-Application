@@ -1,8 +1,5 @@
 
 spring:
-  application:
-    name: AI-fitness-web-application
-
   datasource:
     url: jdbc:mysql://localhost:3360/fitnessusers
     username: root
