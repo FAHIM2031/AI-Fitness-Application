@@ -29,3 +29,5 @@ server:
 kafka:
   topic:
     name: activity-events
+
+
