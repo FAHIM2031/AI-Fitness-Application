@@ -25,7 +25,7 @@ const ActivityForm = ({ onActivitiesAdded }) => {
         e.preventDefault();
         try {
             // Simulate an API call to add the activity
-            // await new Promise((resolve) => setTimeout(resolve, 1000));
+            await addActivity(activity);
             onActivitiesAdded();
             setactivity({
                 type: "RUNNING",
