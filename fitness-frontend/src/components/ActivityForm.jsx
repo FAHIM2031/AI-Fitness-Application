@@ -11,7 +11,7 @@ import {
 
 import { useState } from 'react';
 
-const ActivityForm = ({ onActivitiesAdded }) => {
+const ActivityForm = ({ onActivityAdded }) => {
 
     const [activity,setactivity]=useState({
         type: "RUNNING",

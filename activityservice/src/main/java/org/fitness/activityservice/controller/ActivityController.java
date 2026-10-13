@@ -6,10 +6,7 @@ import org.fitness.activityservice.dto.ActivityRequest;
 import org.fitness.activityservice.dto.ActivityResonse;
 import org.fitness.activityservice.service.ActivityService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/activities")
@@ -19,7 +16,8 @@ public class ActivityController {
 
 
     @PostMapping
-    public ResponseEntity<ActivityResonse> trackActivity(@RequestBody ActivityRequest request){
+    public ResponseEntity<ActivityResonse> trackActivity(@RequestBody ActivityRequest request, @RequestHeader("X-User-ID") String userId){
+        request.setUserID(userId);
         return ResponseEntity.ok(activityService.trackActivity(request));
     }
 
